@@ -1,0 +1,16 @@
+@import '../mixins';
+
+.container {
+	display: flex;
+
+	justify-content: space-between;
+	flex-direction: row;
+
+	> div {
+		display: flex;
+
+		flex-direction: column;
+
+		flex-grow: 1;
+	}
+}

@@ -17,7 +17,7 @@ piuhnaipUNgpiunAGF
 dyzleqtic
 ```
 
-> And i can guarantee that is one of the reasons i've reached where i am today
+> And i can guarantee that this is one of the reasons i've reached where i am today
 > I could easily say that that is my greatest superpower
 > But before i start i would like to hear what you guys think about dyslexia
 

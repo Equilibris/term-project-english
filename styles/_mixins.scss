@@ -1,0 +1,63 @@
+@mixin round {
+	border-radius: 1000vmax;
+}
+
+@mixin box($size) {
+	height: $size;
+	width: $size;
+}
+
+@mixin grid {
+	display: grid;
+}
+
+@mixin flex {
+	display: flex;
+}
+
+@mixin center() {
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin shadow {
+	box-shadow: $common-shadow;
+}
+
+@mixin border($color: $border-1) {
+	border: 1px solid $color;
+}
+
+@mixin fill($usePositionFill: false) {
+	@if $usePositionFill {
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	} @else {
+		height: 100%;
+		width: 100%;
+	}
+}
+
+@mixin animate(
+	$duration: unset,
+	$timing-function: unset,
+	$direction: unset,
+	$iteration-count: unset,
+	$delay: unset
+) {
+	$name: unique-id();
+
+	animation-name: $name;
+
+	animation-duration: $duration;
+	animation-timing-function: $timing-function;
+	animation-iteration-count: $iteration-count;
+	animation-direction: $direction;
+	animation-delay: $delay;
+
+	@keyframes #{$name} {
+		@content;
+	}
+}
