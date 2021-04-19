@@ -3,6 +3,7 @@ import { Masonry } from 'client/components/masonry'
 import { Data } from './api/images'
 import ImageCitation from 'client/components/sited-image'
 import Head from 'next/head'
+import Image from 'next/image'
 
 import Highlight from 'react-highlight.js'
 
@@ -352,7 +353,7 @@ export default withRouter(function main() {
 						className={`strike-me ${
 							isValidSlide(s6i + 2, Infinity) ? 'active' : ''
 						}`}>
-						But how did i do that?
+						But how did I do that?
 					</span>{' '}
 					<span className={xyzSlideClass(s6i + 2)} xyz='fade'>
 						Now, back to topic
@@ -361,7 +362,7 @@ export default withRouter(function main() {
 				<CodeRenderer onSlide={s6i + 1} />
 			</div>
 			<div
-				className={`slide title-slide ${xyzSlideClass(s7i, s8i)}`}
+				className={`slide title-slide entry-brain ${xyzSlideClass(s7i, s8i)}`}
 				xyz={slideXyzBasis}>
 				<h1>
 					Contrary to popular belief dyslexia is{' '}
@@ -374,24 +375,60 @@ export default withRouter(function main() {
 						not
 					</i>{' '}
 					an error in the lexical region of the brain, but rather a complete{' '}
-					<span
+					<i
 						className={
 							isValidSlide(s7i + 2, Infinity)
 								? 'underline-me active'
 								: 'underline-me'
 						}>
 						rewire.
-					</span>
+					</i>
 				</h1>
 				<p className={xyzSlideClass(s7i + 3, Infinity)} xyz='fade'>
-					Lets show this with a bit of a whimsical example
-					{/* <img
-						src='/moogus.svg'
-						alt='Moogus'
-						className={xyzSlideClass(s7i + 3, Infinity)}
-						xyz='fade'
-					/> */}
+					Lets show this with a bit of a{' '}
+					<span
+						className={
+							isValidSlide(s7i + 4, Infinity) ? 'strike-me active' : 'strike-me'
+						}>
+						whimsical
+					</span>{' '}
+					<i
+						className={
+							isValidSlide(s7i + 4, Infinity) ? 'sus' : 'sus inactive'
+						}>
+						sus
+					</i>{' '}
+					example
+					<span className={xyzSlideClass(s7i + 4)}>
+						<img src='/moogus-svg.svg' />
+					</span>
 				</p>
+			</div>
+			<div
+				className={`slide brain ${xyzSlideClass(s8i, s9i)}`}
+				xyz={slideXyzBasis}>
+				<div>
+					<div className='title'>
+						<div>
+							<h1>
+								The brain of an average moogus
+								<div />
+							</h1>
+						</div>
+					</div>
+					<div className='content'>
+						<img src='/clean.png' width='100%' />
+						<ul>
+							<li>Clean</li>
+							<li>Simple</li>
+							<li>Not a microsoft product</li>
+							<li>Works well</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div className='sus'>
+				<Image src='/moogus-svg.svg' width='50px' height='auto' />
 			</div>
 		</div>
 	)

@@ -19,7 +19,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 		const term = terms[index]
 		console.log('fetching term:', term)
 		searchResult[term] = (await google.scrape(term, 50)) as any
-		console.log('done', index + 1, '/', terms.length)
+		console.log('done', 1 + +index, '/', terms.length)
 	}
 	const output: Data = []
 
