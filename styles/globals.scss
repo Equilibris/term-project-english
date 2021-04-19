@@ -27,6 +27,10 @@
 
 $colour: #de2167;
 $bg: #222;
+$bg-alt: #2a2a2a;
+$border: white;
+
+$full-border: 5px solid $border;
 
 html,
 body {
@@ -67,6 +71,32 @@ h6 {
 	background-color: #0000 !important;
 }
 
+@mixin spinner($size) {
+	&,
+	&::after {
+		border-radius: 50%;
+		width: 10em;
+		height: 10em;
+	}
+
+	margin: 60px auto;
+	font-size: $size;
+	position: relative;
+	text-indent: -9999em;
+
+	border: 1.1em solid #fff2;
+	border-top: 1.1em solid $colour;
+
+	@include animate(3s, linear, unset, infinite) {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+}
+
 .meta-data {
 	display: flex;
 	@include center;
@@ -81,29 +111,7 @@ h6 {
 
 	// copy from https://projects.lukehaas.me/css-loaders/
 	.spinner {
-		&,
-		&::after {
-			border-radius: 50%;
-			width: 10em;
-			height: 10em;
-		}
-
-		margin: 60px auto;
-		font-size: 0.2em;
-		position: relative;
-		text-indent: -9999em;
-
-		border: 1.1em solid #fff2;
-		border-top: 1.1em solid $colour;
-
-		@include animate(3s, linear, unset, infinite) {
-			0% {
-				transform: rotate(0deg);
-			}
-			100% {
-				transform: rotate(360deg);
-			}
-		}
+		@include spinner(0.2em);
 	}
 
 	.time-meta {
@@ -279,6 +287,24 @@ h6 {
 			box-shadow: inset 0px -50px 20px -20px $bg;
 		}
 
+		.loading-spinner {
+			display: flex;
+
+			@include center;
+			h1 {
+				@include center;
+
+				display: flex;
+				flex-direction: row;
+
+				height: 3em;
+			}
+			div {
+				@include spinner(0.2em);
+				margin: 10px;
+			}
+		}
+
 		.translation-container {
 			position: relative;
 
@@ -294,9 +320,9 @@ h6 {
 			}
 
 			.card {
-				border-radius: 10px;
+				background-color: $bg-alt;
 
-				border: 1px solid #fff5;
+				border: $full-border;
 
 				width: 100%;
 				padding: 10px;
@@ -320,7 +346,6 @@ h6 {
 				}
 
 				div {
-					border-radius: 5px;
 					overflow: hidden;
 					img {
 						width: 100%;
@@ -332,9 +357,13 @@ h6 {
 		}
 	}
 	&.code {
-
 		.code {
-			font-size: 20px;
+			box-sizing: border-box;
+
+			background-color: $bg-alt;
+			font-size: 1.75vh;
+
+			border: $full-border;
 		}
 	}
 }
@@ -354,6 +383,10 @@ h6 {
 		margin-top: 0.5em;
 		line-height: 1em;
 		font-size: 5vh;
+
+		img {
+			height: 3em;
+		}
 	}
 }
 
@@ -365,7 +398,7 @@ h6 {
 		display: block;
 
 		content: '';
-		height: .25em;
+		height: 0.25em;
 		background-color: $colour;
 		z-index: -1;
 
@@ -391,8 +424,8 @@ h6 {
 	&::before {
 		top: 50%;
 
-		left: -.3em;
-		right: -.3em;
+		left: -0.3em;
+		right: -0.3em;
 	}
 }
 .underline-me {
@@ -412,17 +445,19 @@ h6 {
 	flex-direction: column;
 	justify-content: right;
 
-	border-radius: 10px;
-	border: 1px solid #fff5;
+	border: $full-border;
 	padding: 10px;
 
 	div {
 		display: flex;
 
-		border-radius: 5px;
 		overflow: hidden;
 
-		border: 1px solid #fff5;
+		width: 100%;
+
+		img {
+			width: 100%;
+		}
 	}
 
 	p {

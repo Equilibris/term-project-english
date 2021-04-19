@@ -12,11 +12,15 @@ const ensureArray = <T>(input: T | T[]) =>
 
 export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 	const searchResult: Record<string, Record<'title' | 'url', string>[]> = {}
-	await Promise.all(
-		ensureArray(req.query['term']).map(
-			async (x) => (searchResult[x] = (await google.scrape(x, 100)) as any)
-		)
-	)
+
+	const terms = ensureArray(req.query['term'])
+
+	for (const index in terms) {
+		const term = terms[index]
+		console.log('fetching term:', term)
+		searchResult[term] = (await google.scrape(term, 50)) as any
+		console.log('done', index + 1, '/', terms.length)
+	}
 	const output: Data = []
 
 	for (const searchTerm in searchResult)

@@ -122,7 +122,15 @@ const IdeaVisualizerPage: FC<{
 				</Masonry>
 			</div>
 		)
-	else return <></>
+	else
+		return (
+			<div className='loading-spinner'>
+				<h1>
+					<div />
+					Loading results
+				</h1>
+			</div>
+		)
 })
 
 const WrappedHighlight: FC = memo(({ children }) => (
@@ -142,7 +150,7 @@ const CodeRenderer: FC<{ onSlide: number }> = ({ onSlide }) => {
 
 		if (slide === onSlide) {
 			console.log('setting counter from', count)
-			set(0)
+			set(-1)
 		}
 	}, [onSlide, slide])
 
@@ -197,7 +205,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {`}</W
 
 type Args = [goal: number] | [start: number, end: number]
 
-const main = () => {
+export default withRouter(function main() {
 	const slide = useContext(slideContext)
 
 	const [ideasAboutDyslexia, setIdeasAboutDyslexia] = useState<string[]>([
@@ -222,7 +230,7 @@ const main = () => {
 	const s5i = s4i + 1
 	const s6i = s5i + 1
 	const s7i = s6i + 3
-	const s8i = s7i + 1
+	const s8i = s7i + 5
 	const s9i = s8i + 1
 	const s10i = s9i + 1
 	const s11i = s10i + 1
@@ -341,16 +349,50 @@ const main = () => {
 				xyz={slideXyzBasis}>
 				<h1>
 					<span
-						className={`strike-me ${isValidSlide(s6i + 2) ? 'active' : ''}`}>
+						className={`strike-me ${
+							isValidSlide(s6i + 2, Infinity) ? 'active' : ''
+						}`}>
 						But how did i do that?
 					</span>{' '}
 					<span className={xyzSlideClass(s6i + 2)} xyz='fade'>
-						But back to topic
+						Now, back to topic
 					</span>
 				</h1>
 				<CodeRenderer onSlide={s6i + 1} />
 			</div>
+			<div
+				className={`slide title-slide ${xyzSlideClass(s7i, s8i)}`}
+				xyz={slideXyzBasis}>
+				<h1>
+					Contrary to popular belief dyslexia is{' '}
+					<i
+						className={
+							isValidSlide(s7i + 1, Infinity)
+								? 'underline-me active'
+								: 'underline-me'
+						}>
+						not
+					</i>{' '}
+					an error in the lexical region of the brain, but rather a complete{' '}
+					<span
+						className={
+							isValidSlide(s7i + 2, Infinity)
+								? 'underline-me active'
+								: 'underline-me'
+						}>
+						rewire.
+					</span>
+				</h1>
+				<p className={xyzSlideClass(s7i + 3, Infinity)} xyz='fade'>
+					Lets show this with a bit of a whimsical example
+					{/* <img
+						src='/moogus.svg'
+						alt='Moogus'
+						className={xyzSlideClass(s7i + 3, Infinity)}
+						xyz='fade'
+					/> */}
+				</p>
+			</div>
 		</div>
 	)
-}
-export default main
+})
