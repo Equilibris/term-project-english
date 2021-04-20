@@ -233,8 +233,8 @@ export default withRouter(function main() {
 	const s7i = s6i + 3
 	const s8i = s7i + 5
 	const s9i = s8i + 2
-	const s10i = s9i + 1
-	const s11i = s10i + 1
+	const s10i = s9i + 4
+	const s11i = s10i + 2
 	const s12i = s11i + 1
 
 	return (
@@ -434,15 +434,40 @@ export default withRouter(function main() {
 							/>
 						</div>
 						<ul>
-							<li>Clean</li>
-							<li>Simple</li>
+							<li>
+								<span
+									className={
+										isValidSlide(-Infinity, s8i + 1)
+											? 'strike-me'
+											: 'strike-me active'
+									}>
+									Clean
+								</span>
+							</li>
+							<li>
+								<span
+									className={
+										isValidSlide(-Infinity, s8i + 1)
+											? 'strike-me'
+											: 'strike-me active'
+									}>
+									Simple
+								</span>
+							</li>
 							<ul
 								className={
 									isValidSlide(s8i + 1, Infinity) ? 'nested' : 'nested inactive'
-								}>
-								<li>A complete mess</li>
-								<li>In no way simple</li>
-								<li>Still does something but not that you expect</li>
+								}
+								xyz='fade stagger right'>
+								<li className={xyzSlideClass(s8i + 1, Infinity)}>
+									A complete mess
+								</li>
+								<li className={xyzSlideClass(s8i + 1, Infinity)}>
+									In no way simple
+								</li>
+								<li className={xyzSlideClass(s8i + 1, Infinity)}>
+									Still does something but not that you expect
+								</li>
 							</ul>
 							<li>Not a microsoft product</li>
 							<li>Works well</li>
@@ -452,6 +477,32 @@ export default withRouter(function main() {
 				<div className='sus'>
 					<Image src='/moogus-svg.svg' layout='fill' />
 				</div>
+			</div>
+			<div
+				className={`slide code ${xyzSlideClass(s9i, s10i)}`}
+				xyz={slideXyzBasis}>
+				<h1>
+					Remember this?{' '}
+					<span className={xyzSlideClass(s9i + 2, Infinity)}>
+						This is{' '}
+						<i
+							className={
+								isValidSlide(s9i + 3, Infinity)
+									? 'underline-me active'
+									: 'underline-me'
+							}>
+							javascript
+						</i>
+					</span>
+				</h1>
+				<CodeRenderer onSlide={s9i + 1} />
+			</div>
+			<div
+				className={`slide title-slide ${xyzSlideClass(s10i, s11i)}`}
+				xyz={slideXyzBasis}>
+				<h1 className='watermark'>Novel problem-solving</h1>
+				<h1>But what makes programming different?</h1>
+				<p className={xyzSlideClass(s11i + 1, Infinity)} xyz='fade'>Hello</p>
 			</div>
 		</div>
 	)

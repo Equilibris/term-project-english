@@ -71,10 +71,8 @@ Brain of a dyslectic moogus (sus)
 ```
 
 > If you see here they are still correct yet the paths don't really make sense
-> An effect of this is reduces lexical ingress <!-- No shit this line could be better -->
+> An effect of this is shittier lexical processing <!-- No shit this line could be better -->
 > Don't believe me?
-
-<!-- branch 0 -->
 
 > Lets see the contrary, what skills are boosted through dyslexia
 > Remember this
@@ -109,23 +107,6 @@ _Prompt conversation_
 > The world has to do a retrograde burn and view peoples differences as unique superpowers
 
 > Thanks for your attention :D
-
-<!-- branch 1 -->
-
-<!--
-> Let us take a look at an example little game
-> Who in here has German 1 or 2?
-> _Prompt hand raise_
-> Ok awesome, the rest of you keep an eye on the prompts, there is a pattern ( And its easier to see if you don't know the language )
-
-```
-* Den Hund isst das Fleisch
-* Der Hund essen das Fleisch
-* Der Hund isst das Fleisch [ CORRECT ]
-```
--->
-
-<!-- END branch -->
 
 # sources
 
