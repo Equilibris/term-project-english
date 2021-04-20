@@ -99,6 +99,17 @@ _Prompt conversation_
 > And can we all agree that solving new, up-and-coming problems is more useful than being able to analyze a short story?
 > Obviously
 
+> To wrap things up
+> I missed the task again!
+> Ooooh no my grade is trembling in fear
+> But _how?_
+> Well, dyslexia is **not** a disadvantage &mdash; despite whatever pop-culture makes you think
+> Dyslexia is a difference, and it needs to be treated as that
+> The world cannot continue to try to progress forward though only transforming into one
+> The world has to do a retrograde burn and view peoples differences as unique superpowers
+
+> Thanks for your attention :D
+
 <!-- branch 1 -->
 
 <!--

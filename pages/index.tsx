@@ -232,7 +232,7 @@ export default withRouter(function main() {
 	const s6i = s5i + 1
 	const s7i = s6i + 3
 	const s8i = s7i + 5
-	const s9i = s8i + 1
+	const s9i = s8i + 2
 	const s10i = s9i + 1
 	const s11i = s10i + 1
 	const s12i = s11i + 1
@@ -409,26 +409,49 @@ export default withRouter(function main() {
 				xyz={slideXyzBasis}>
 				<div>
 					<div className='title'>
-						<div>
-							<h1>
+						<div xyz={'fade'}>
+							<h1 className={xyzSlideClass(-Infinity, s8i + 1)}>
 								The brain of an average moogus
+								<div />
+							</h1>
+							<h1 className={xyzSlideClass(s8i + 1, Infinity)}>
+								The brain of a <i className='underline-me'>dyslectic</i> moogus
 								<div />
 							</h1>
 						</div>
 					</div>
 					<div className='content'>
-						<img src='/clean.png' width='100%' />
+						<div className='image' xyz='fade'>
+							<img
+								className={xyzSlideClass(-Infinity, s8i + 1)}
+								src='/clean.png'
+								width='100%'
+							/>
+							<img
+								className={xyzSlideClass(s8i + 1, Infinity)}
+								src='/mess.png'
+								width='100%'
+							/>
+						</div>
 						<ul>
 							<li>Clean</li>
 							<li>Simple</li>
+							<ul
+								className={
+									isValidSlide(s8i + 1, Infinity) ? 'nested' : 'nested inactive'
+								}>
+								<li>A complete mess</li>
+								<li>In no way simple</li>
+								<li>Still does something but not that you expect</li>
+							</ul>
 							<li>Not a microsoft product</li>
 							<li>Works well</li>
 						</ul>
 					</div>
 				</div>
-			</div>
-			<div className='sus'>
-				<Image src='/moogus-svg.svg' width='50px' height='auto' />
+				<div className='sus'>
+					<Image src='/moogus-svg.svg' layout='fill' />
+				</div>
 			</div>
 		</div>
 	)

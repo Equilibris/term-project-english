@@ -387,12 +387,43 @@ h6 {
 		$text-size: 800px;
 
 		.sus {
-			height: 100px;
+			$size: 1500px;
+			$use-size: $size / 2;
 
+			height: $size;
 			position: absolute;
 
-			right: 0;
-			bottom: 0;
+			top: unquote('calc(50% - ' + $use-size + ')');
+			left: 0;
+
+			opacity: 0.1;
+
+			z-index: -1;
+		}
+		.content {
+			.image {
+				width: 550px;
+				height: 550px;
+				position: relative;
+				img {
+					position: absolute;
+					@include fill(true);
+				}
+			}
+			.nested {
+				position: relative;
+				right: calc(1em + 9px);
+
+				transition: all ease 0.5s;
+				overflow: hidden;
+
+
+				height: 5em;
+				&.inactive {
+					height: 0;
+					opacity: 0;
+				}
+			}
 		}
 
 		.title {
@@ -417,20 +448,24 @@ h6 {
 				align-items: flex-end;
 				justify-content: flex-end;
 
+				$height: 40px;
+				$margin: 10px;
 				h1 {
 					text-align: right;
 
 					font-size: 100px;
 
-					margin-bottom: 50px;
+					position: absolute;
+
+					bottom: $height - $margin;
 				}
 				div {
 					position: absolute;
 
 					right: 0;
-					bottom: 0;
+					bottom: -$height - $margin;
 
-					height: 40px;
+					height: $height;
 					width: 200px;
 					background-color: white;
 				}
@@ -449,9 +484,7 @@ h6 {
 			padding: 10px 175px;
 			gap: 10px;
 
-			ul {
-				font-size: 2em;
-			}
+			font-size: 2em;
 		}
 	}
 }
