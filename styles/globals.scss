@@ -505,6 +505,27 @@ h6 {
 	}
 	&.case-study {
 		font-size: 1.75em;
+
+		.content {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+
+			gap: .5em;
+
+			.dyslectic {
+				.image {
+					background-position: center;
+
+					width: 100%;
+
+					&::after {
+						content: '';
+						display: block;
+						padding-bottom: 100%;
+					}
+				}
+			}
+		}
 	}
 }
 

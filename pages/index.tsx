@@ -211,7 +211,10 @@ const Dyslectic: FC<{
 	synopsis: string
 }> = ({ className, image, name, synopsis }) => (
 	<div className={`dyslectic ${className || ''}`}>
-		<img src={image} />
+		<div
+			className='image'
+			style={{ background: `url(${image})`, backgroundSize: 'cover' }}
+		/>
 		<h2>{name}</h2>
 		<sub>{synopsis}</sub>
 	</div>
@@ -250,7 +253,7 @@ export default withRouter(function main() {
 	const s11i = s10i + 2
 	const s12i = s11i + 5
 	const s13i = s12i + 3
-	const s14i = s13i + 3
+	const s14i = s13i + 4
 
 	return (
 		<div className='main'>
@@ -611,7 +614,7 @@ export default withRouter(function main() {
 						This wasn't PowerPoint
 					</span>{' '}
 					<span className={xyzSlideClass(s13i + 2, Infinity)}>
-						There are so many awesome dyslectics
+						But who can use it even better
 					</span>
 				</h1>
 				<div className='content'>
@@ -635,9 +638,9 @@ export default withRouter(function main() {
 					/>
 					<Dyslectic
 						className={xyzSlideClass(s13i + 3)}
-						image=''
-						name=''
-						synopsis=''
+						image='https://www.varsity.co.uk/images/dyn/store/1500/0/35036.jpeg'
+						name='Thomas Brodie-Sangster'
+						synopsis='Queens gambit lying asexual'
 					/>
 					<Dyslectic
 						className={xyzSlideClass(s13i + 3)}
