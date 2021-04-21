@@ -111,3 +111,5 @@ _Prompt conversation_
 # sources
 
 - [the many strengths of dyslexics](http://dyslexiahelp.umich.edu/dyslexics/learn-about-dyslexia/what-is-dyslexia/the-many-strengths-of-dyslexics)
+- [9 strengths dyslexia](https://www.nessy.com/us/parents/dyslexia-information/9-strengths-dyslexia/)
+- https://elifesciences.org/articles/59340#fig1

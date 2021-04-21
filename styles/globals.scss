@@ -387,7 +387,7 @@ h6 {
 		$text-size: 800px;
 
 		.sus {
-			$size: 1500px;
+			$size: 140vh;
 			$use-size: $size / 2;
 
 			height: $size;
@@ -416,7 +416,6 @@ h6 {
 
 				transition: all ease 0.5s;
 				overflow: hidden;
-
 
 				height: 5em;
 				&.inactive {
@@ -486,6 +485,26 @@ h6 {
 
 			font-size: 2em;
 		}
+	}
+	&.brain-regions,
+	&.compare {
+		font-size: 1.75em;
+		.content {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+
+			gap: 10px;
+		}
+	}
+	&.compare {
+		.content {
+			ul {
+				font-size: 1.5em;
+			}
+		}
+	}
+	&.case-study {
+		font-size: 1.75em;
 	}
 }
 
