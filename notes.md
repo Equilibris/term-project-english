@@ -112,4 +112,7 @@ _Prompt conversation_
 
 - [the many strengths of dyslexics](http://dyslexiahelp.umich.edu/dyslexics/learn-about-dyslexia/what-is-dyslexia/the-many-strengths-of-dyslexics)
 - [9 strengths dyslexia](https://www.nessy.com/us/parents/dyslexia-information/9-strengths-dyslexia/)
-- https://elifesciences.org/articles/59340#fig1
+- [Neurological brain regions under programming](https://elifesciences.org/articles/59340#fig1)
+- [dyslexic achievers](https://www.dyslexia.com/about-dyslexia/dyslexic-achievers/all-achievers/)
+- [dyslexic talents](https://www.dyslexia.com/about-dyslexia/dyslexic-talents/dyslexia-8-basic-abilities/)
+- [dyslexia](https://en.wikipedia.org/wiki/Dyslexia)

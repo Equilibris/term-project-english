@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				</div>
 			</div>
 			<div className='progress'>
-				<div style={{ width: `${(101 * (1 + slide)) / 30}vw` }}></div>
+				<div style={{ width: `${(101 * (1 + slide)) / 46}vw` }}></div>
 			</div>
 		</slideContext.Provider>
 	)

@@ -113,6 +113,30 @@ h6 {
 		}
 	}
 }
+@mixin magic-line {
+	position: relative;
+	&::before {
+		position: absolute;
+
+		display: block;
+
+		content: '';
+		height: 0.25em;
+		background-color: $colour;
+		z-index: -1;
+
+		opacity: 0.5;
+		transition: all 0.5s ease;
+
+		transform-origin: 0 0;
+		transform: scaleX(0);
+	}
+
+	&.active::before {
+		opacity: 1;
+		transform: scaleX(1);
+	}
+}
 
 .meta-data {
 	display: flex;
@@ -507,12 +531,51 @@ h6 {
 		font-size: 1.75em;
 
 		.content {
+			overflow-x: hidden;
+			overflow-y: scroll;
+
+			height: 70vh;
+
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
 
-			gap: .5em;
+			gap: 0.5em;
 
+			@keyframes border-animation {
+				0% {
+					border-color: $border;
+				}
+				70% {
+					border-color: $border;
+				}
+				80% {
+					border-color: $colour;
+				}
+				100% {
+					border-color: $border;
+				}
+			}
+			$count: 10;
+			@for $index from 1 through $count {
+				.xyz-in:nth-child(#{$index}) .dyslectic {
+					animation: border-animation
+						$count +
+						unquote('s')
+						ease
+						$index +
+						unquote('s')
+						infinite
+						reverse;
+				}
+			}
 			.dyslectic {
+				position: relative;
+
+				border: $full-border;
+				padding: 10px;
+
+				min-height: 100%;
+
 				.image {
 					background-position: center;
 
@@ -523,6 +586,70 @@ h6 {
 						display: block;
 						padding-bottom: 100%;
 					}
+				}
+				h2 {
+					font-style: italic;
+					color: $colour;
+
+					position: absolute;
+					top: 0;
+					width: 100%;
+
+					div {
+						position: absolute;
+						bottom: 1em;
+					}
+
+					&::after {
+						content: '';
+						display: block;
+						padding-bottom: 100%;
+					}
+				}
+			}
+			&::-webkit-scrollbar {
+				width: 0; /* Remove scrollbar space */
+				background: transparent; /* Optional: just make scrollbar invisible */
+			}
+			/* Optional: show position indicator in red */
+			&::-webkit-scrollbar-thumb {
+				background: #ff0000;
+			}
+		}
+	}
+	&.sources {
+		font-size: 1.75em;
+
+		a {
+			@include magic-line;
+			@extend .active;
+		}
+	}
+	&.end {
+		display: flex;
+		@include center;
+
+		font-size: 3em;
+
+		text-align: center;
+
+		div {
+			z-index: -1;
+
+			background-color: $colour;
+
+			height: 500px;
+			width: 400px;
+
+			position: absolute;
+
+			@include animate(10s, ease-in-out, alternate, infinite) {
+				0% {
+					transform: translate(-.5em,-.5em);
+					box-shadow: 1.5em 1.5em 0px 0px $bg-alt;
+				}
+				100% {
+					box-shadow: .5em .5em 0px 0px $bg-alt;
 				}
 			}
 		}
@@ -548,31 +675,6 @@ h6 {
 		img {
 			height: 1em;
 		}
-	}
-}
-
-@mixin magic-line {
-	position: relative;
-	&::before {
-		position: absolute;
-
-		display: block;
-
-		content: '';
-		height: 0.25em;
-		background-color: $colour;
-		z-index: -1;
-
-		opacity: 0.5;
-		transition: all 0.5s ease;
-
-		transform-origin: 0 0;
-		transform: scaleX(0);
-	}
-
-	&.active::before {
-		opacity: 1;
-		transform: scaleX(1);
 	}
 }
 
