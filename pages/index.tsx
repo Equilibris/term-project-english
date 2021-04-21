@@ -144,7 +144,7 @@ const CodeRenderer: FC<{ onSlide: number }> = ({ onSlide }) => {
 	const slide = useContext(slideContext)
 	const [count, { inc, set }] = useCounter(-Infinity)
 
-	useInterval(inc, 1000)
+	useInterval(inc, 1000/3)
 
 	useEffect(() => {
 		if (slide < onSlide) set(-Infinity)
