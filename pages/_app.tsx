@@ -8,7 +8,7 @@ import { useCounter, useInterval } from 'react-use'
 import { slideContext } from 'client/context/slide'
 
 function MyApp({ Component, pageProps }: AppProps) {
-	const [counter, { inc }] = useCounter(0, Infinity, -1)
+	const [counter, { inc }] = useCounter(290, Infinity, -1)
 	useInterval(inc, 1000)
 
 	const [slide, setSlide] = useState(0)
@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			</main>
 			<div className='meta-data'>
 				<div className='spinner' />
-				<div className='time-meta'>
+				<div className={`time-meta ${counter > 300 ? 'danger-zone' : ''}`}>
 					{counter === 260
 						? 'nice'
 						: `${`${Math.floor(counter / 60)}`.padStart(2, '0')}:${`${
@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				</div>
 			</div>
 			<div className='progress'>
-				<div style={{ width: `${(101 * (1 + slide)) / 46}vw` }}></div>
+				<div style={{ width: `${(101 * (1 + slide)) / 30}vw` }}></div>
 			</div>
 		</slideContext.Provider>
 	)

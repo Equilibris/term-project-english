@@ -159,6 +159,10 @@ h6 {
 		font-size: 30px;
 
 		opacity: 0.5;
+
+		&.danger-zone {
+			color: $colour;
+		}
 	}
 }
 
